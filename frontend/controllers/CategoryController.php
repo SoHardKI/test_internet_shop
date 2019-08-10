@@ -22,7 +22,6 @@ class CategoryController extends AppController
 
     public function actionView($id)
     {
-//        $products = Product::find()->where(['category_id' => $id])->all();
         $category = Category::findOne($id);
         if(empty($category)){
             throw new HttpException(404, 'Такой категории нет');
