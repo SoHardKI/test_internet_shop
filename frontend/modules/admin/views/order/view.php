@@ -41,5 +41,27 @@ $this->params['breadcrumbs'][] = $this->title;
             'address',
         ],
     ]) ?>
-
+<?php $items = $model->orderItems; ?>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Фото</th>
+                <th>Наименование</th>
+                <th>Цена</th>
+                <th>Сумма</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($items as $item): ?>
+                <tr>
+                    <td><a href="<?=\yii\helpers\Url::to(['/product/view', 'id' => $item->product_id])?>"> <?=$item['name']?></a></td>
+                    <td><?=$item['qty_item']?></td>
+                    <td><?=$item['price']?></td>
+                    <td><?=$item['sum_item']?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 </div>

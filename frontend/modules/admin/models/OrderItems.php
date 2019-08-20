@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace app\modules\admin\models;
 
 use Yii;
 
@@ -56,6 +56,6 @@ class OrderItems extends \yii\db\ActiveRecord
 
     public function getOrder()
     {
-        return $this->hasMany(Order::className(),['id' => 'order_id']);
+        return $this->hasOne(Order::className(), ['id' => 'order_id']);
     }
 }
